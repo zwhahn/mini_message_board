@@ -4,6 +4,7 @@
   </head>
   <body>
     <h1><%= title %></h1>
+    <a href="/new"><button>New Message</button></a>
     <ul> 
       <% messages.forEach((message) => { %>
         <%- include('message', {message: message}); %>
