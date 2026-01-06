@@ -1,10 +1,11 @@
 <html>
   <head>
     <title>Mini Message Board</title>
+    <link rel="stylesheet" href="/styles.css">
   </head>
   <body>
     <h1><%= title %></h1>
-    <a href="/new"><button>New Message</button></a>
+    <a href="/new"><button class="new-message">New Message</button></a>
     <ul> 
       <% messages.forEach((message) => { %>
         <%- include('message', {message: message}); %>

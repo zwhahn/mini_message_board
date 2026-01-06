@@ -1,0 +1,35 @@
+* {
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0px 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+h1 {
+  line-height: 3em;
+}
+
+a {
+  /* background-color: red; */
+}
+
+button {
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+  padding: 0px;
+}
+
+.message {
+  margin: 8px 0px;
+  padding: 5px;
+  background-color: bisque;
+}

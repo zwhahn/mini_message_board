@@ -1,6 +1,12 @@
-<li>
-  <div>user: <%= message.user %></div>
-  <div>text: <%= message.text %></div>
-  <div>date: <%= message.added %></div>
+<li class="message">
+  <div><span>User:</span> <%= message.user %></div>
+  <div><span>Text:</span> <%= message.text %></div>
+  <div><span>Date Posted:</span> <%= message.added.toLocaleString("en-US", {
+    month: "short",
+    day: "numeric",
+    hour: "numeric",
+    minute: "2-digit",
+    hour12: true
+  }) %></div>
   <a href=<%=`/${message.id}`%>><button>Details</button></a>
 </li>
