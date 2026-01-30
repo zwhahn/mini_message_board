@@ -1,11 +1,16 @@
-const messagesModel = require("../messagesModel");
+const db = require("../db/queries");
 
 async function getAllMessages(req, res) {
-  res.render("index", {
-    title: "Mini Message Board",
-    messages: messagesModel.getMessages(),
-  });
-  console.log(messagesModel.getMessages());
+  try {
+    const messages = await db.getAllMessages();
+    res.render("index", {
+      title: "Mini Message Board",
+      messages: messages,
+    });
+  } catch (err) {
+    console.error("Error fetching messages: ", err);
+    res.status(500).send("Error loading messages");
+  }
 }
 
 async function getMessageById(req, res) {
@@ -13,7 +18,7 @@ async function getMessageById(req, res) {
 
   console.log(`messageId: ${messageId}`);
 
-  const message = await messagesModel.getMessageById(Number(messageId));
+  const message = await db.getMessageById(Number(messageId));
 
   if (!message) {
     res.status(404).send("Message not found");
@@ -21,9 +26,9 @@ async function getMessageById(req, res) {
   }
 
   res.render("messageDetails", {
-    user: message.user,
-    text: message.text,
-    added: message.added,
+    user: message.author,
+    text: message.content,
+    added: message.created_at,
   });
 }
 

@@ -1,7 +1,7 @@
 <li class="message">
-  <div><span>User:</span> <%= message.user %></div>
-  <div><span>Text:</span> <%= message.text %></div>
-  <div><span>Date Posted:</span> <%= message.added.toLocaleString("en-US", {
+  <div><span>User:</span> <%= message.author %></div>
+  <div><span>Text:</span> <%= message.content %></div>
+  <div><span>Date Posted:</span> <%= new Date(message.created_at).toLocaleString("en-US", {
     month: "short",
     day: "numeric",
     hour: "numeric",
