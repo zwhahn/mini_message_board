@@ -19,4 +19,13 @@ async function createMessage(username, content) {
   ]);
 }
 
-module.exports = { getAllMessages, getMessageById, createMessage };
+async function deleteMessage(id) {
+  await pool.query("DELETE FROM messages WHERE id = $1", [id]);
+}
+
+module.exports = {
+  getAllMessages,
+  getMessageById,
+  createMessage,
+  deleteMessage,
+};

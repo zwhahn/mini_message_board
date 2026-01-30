@@ -29,7 +29,14 @@ async function getMessageById(req, res) {
     user: message.author,
     text: message.content,
     added: message.created_at,
+    messageId: message.id,
   });
 }
 
-module.exports = { getAllMessages, getMessageById };
+async function deleteMessage(req, res) {
+  const { messageId } = req.params;
+  await db.deleteMessage(Number(messageId));
+  res.redirect("/");
+}
+
+module.exports = { getAllMessages, getMessageById, deleteMessage };
